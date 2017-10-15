@@ -1,14 +1,22 @@
-import DummyClass from '../src/bluerain-plugin-redux';
+import BR from '@blueeast/bluerain-os';
+import ReduxPlugin from '../src/bluerain-plugin-redux';
 
-/**
- * Dummy test
- */
-describe('Dummy test', () => {
-	it('works if true is truthy', () => {
-		expect(true).toBeTruthy();
+beforeAll(() => {
+	BR.Plugins.register(ReduxPlugin);
+});
+
+beforeEach(() => {
+	document.body.innerHTML = '<div class="app-container">' + '</div>';
+});
+
+describe('Redux Plugin Test', () => {
+	it('registered the plugin successfully', () => {
+		const Plugin = BR.Plugins.get(ReduxPlugin.slug);
+		expect(Plugin).toBeTruthy();
 	});
 
-	it('DummyClass is instantiable', () => {
-		expect(new DummyClass()).toBeInstanceOf(DummyClass);
+	it('should have redux store in "ref"', () => {
+		BR.boot();
+		expect(BR.refs.store).toBeTruthy();
 	});
 });
