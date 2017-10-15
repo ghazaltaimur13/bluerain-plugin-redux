@@ -29,3 +29,12 @@
 8. Update `README.md`
 9. Delete `package-lock.json` since we're using yarn
 10. In `.editorconfig` change `indent_style = space` to `indent_style = tab`
+11. Add repo to
+	- Coveralls
+	- Travis
+	- Greenkeeper
+		- Setup Greenkeeper [lockfile](https://github.com/greenkeeperio/greenkeeper-lockfile).
+	- Codecov
+		- `yarn add codecov --dev`
+		- replace contents of `report-coverage` script with `"cat ./coverage/lcov.info | coveralls && codecov"`
+12. Push Code
