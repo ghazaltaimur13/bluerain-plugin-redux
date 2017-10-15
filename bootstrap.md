@@ -29,7 +29,14 @@
 8. Update `README.md`
 9. Delete `package-lock.json` since we're using yarn
 10. In `.editorconfig` change `indent_style = space` to `indent_style = tab`
-11. Add repo to
+11. Remove the following lines from `.travis.yml`
+```yml
+branches:
+  only:
+    - master
+    - /^greenkeeper/.*$/
+```
+12. Add repo to
 	- Coveralls
 	- Travis
 	- Greenkeeper
@@ -37,4 +44,16 @@
 	- Codecov
 		- `yarn add codecov --dev`
 		- replace contents of `report-coverage` script with `"cat ./coverage/lcov.info | coveralls && codecov"`
-12. Push Code
+		- bundlesize
+			- `yarn add bundlesize --dev`
+			- Replace build script to add bundlesize `"tsc && rollup -c rollup.config.ts && rimraf compiled && bundlesize && typedoc --out dist/docs --target es6 --theme minimal src"`
+			- Add following config to package.json
+```json
+"bundlesize": [
+	{
+		"path": "./dist/PLUGINNAME.es5.js",
+		"maxSize": "3 kB"
+	}
+],
+```
+13. Push Code

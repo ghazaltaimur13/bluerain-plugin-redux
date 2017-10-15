@@ -21,7 +21,7 @@
   "scripts": {
     "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
     "prebuild": "rimraf dist",
-    "build": "tsc && rollup -c rollup.config.ts && rimraf compiled && typedoc --out dist/docs --target es6 --theme minimal src",
+    "build": "tsc && rollup -c rollup.config.ts && rimraf compiled && bundlesize && typedoc --out dist/docs --target es6 --theme minimal src",
     "start": "tsc -w & rollup -c rollup.config.ts -w",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -32,7 +32,13 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
     "precommit": "lint-staged"
-  },
+	},
+	"bundlesize": [
+    {
+      "path": "./dist/bluerain-plugin-redux.es5.js",
+      "maxSize": "18 kB"
+    }
+  ],
   "lint-staged": {
     "{src,test}/**/*.ts": [
       "prettier --write --use-tabs --single-quote",
@@ -80,6 +86,7 @@
     "@types/react": "^16.0.10",
     "@types/react-redux": "^5.0.10",
     "@types/redux": "^3.6.0",
+    "bundlesize": "^0.15.2",
     "codecov": "^2.3.1",
     "colors": "^1.1.2",
     "commitizen": "^2.9.6",
