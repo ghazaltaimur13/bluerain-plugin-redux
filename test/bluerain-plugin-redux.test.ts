@@ -49,7 +49,7 @@ describe('Redux Plugin Test', () => {
 		).toBeDefined();
 	});
 
-	it('  should have length 5 of  bluerain.redux.reducers.bluerain filter', () => {
+	it('  should have length 3 of  bluerain.redux.reducers.bluerain filter', () => {
 		BR.boot({
 			renderApp: false
 		});
@@ -66,7 +66,7 @@ describe('Redux Plugin Test', () => {
 		expect(BR.Filters.FiltersTable['bluerain.system.app']).toBeDefined();
 	});
 
-	it(' should have length 7 of  bluerain.system.app filter', () => {
+	it(' should have length 5 of  bluerain.system.app filter', () => {
 		BR.boot({
 			renderApp: false
 		});
@@ -83,7 +83,7 @@ describe('Redux Plugin Test', () => {
 		).toBeDefined();
 	});
 
-	it(' should have length 4 of  bluerain.redux.initialState filter ', () => {
+	it(' should have length 3 of  bluerain.redux.initialState filter ', () => {
 		BR.boot({
 			renderApp: false
 		});
@@ -94,7 +94,7 @@ describe('Redux Plugin Test', () => {
 
 	// Tests of bluerain.redux.middlewares filter in   ReduxPlugin
 
-	it('should have length 10 of   bluerain.redux.middlewares filter', () => {
+	it('should have length 8 of   bluerain.redux.middlewares filter', () => {
 		BR.boot({
 			renderApp: false
 		});
