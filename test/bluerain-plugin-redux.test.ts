@@ -2,7 +2,6 @@ import BR from '@blueeast/bluerain-os';
 import ReduxPlugin from '../src/bluerain-plugin-redux';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import * as TestUtils from 'react-dom/test-utils';
 import reducer from '../src/reducers';
 import { shallow, mount } from 'enzyme';
 
