@@ -15,11 +15,19 @@ class ReduxPlugin extends Plugin {
 
 	static initialize(config: {} = {}, ctx: BlueRainType) {
 
+
+		type  ReduxPluginProps = {
+			store: string,
+		}
+			
+
 		// withRedux HOC Method
-		const withRedux = (App: typeof React.Component) => (props: any) => {
+		const withRedux = (App: typeof React.Component) => (props: ReduxPluginProps) => {
 
 			ctx.Filters.run('bluerain.redux.beforeInit');
 			const store = createStore(ctx);
+			console.log("createstore",store);
+			
 
 			/**
 			 * This plugin saves `store` object in the BlueRain context. This can be accessed in the following way:
