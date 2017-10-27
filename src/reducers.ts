@@ -6,6 +6,7 @@ const getReducers = (ctx: BlueRainType): Reducer<any> => {
 		// stub: (state = {}) => state
 	});
 
+	console.log('get Reducer', getReducers);
 	let reducers = {
 		bluerain: combineReducers(bluerainReducers)
 	};

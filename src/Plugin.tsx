@@ -29,6 +29,7 @@ class ReduxPlugin extends Plugin {
 			console.log("createstore",store);
 			
 
+
 			/**
 			 * This plugin saves `store` object in the BlueRain context. This can be accessed in the following way:
 			 *
@@ -40,10 +41,10 @@ class ReduxPlugin extends Plugin {
 			 */
 			const StoreRef = store;
 			ctx.refs.store = StoreRef;
-
-			const ReduxProvider = ctx.Filters.run('bluerain.redux.provider', Provider);
+			
+            const ReduxProvider = ctx.Filters.run('bluerain.redux.provider', Provider);
 			App = ctx.Filters.run('bluerain.redux.app', App);
-
+	   
 			return (<ReduxProvider store={store}><App {...props} /></ReduxProvider>);
 		};
 

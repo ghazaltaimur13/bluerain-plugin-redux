@@ -37,6 +37,5 @@ export const createStore = (ctx: BlueRainType) => {
 	ctx.Filters.run('bluerain.redux.store', store);
 	return store;
 };
-
 export const getStore = () => store;
 export const getInitialState = () => initialState;
