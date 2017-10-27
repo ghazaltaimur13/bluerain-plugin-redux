@@ -19,15 +19,14 @@ class ReduxPlugin extends Plugin {
 		type  ReduxPluginProps = {
 			store: string,
 		}
-			
+
 
 		// withRedux HOC Method
 		const withRedux = (App: typeof React.Component) => (props: ReduxPluginProps) => {
 
 			ctx.Filters.run('bluerain.redux.beforeInit');
 			const store = createStore(ctx);
-			console.log("createstore",store);
-			
+
 
 
 			/**
@@ -41,10 +40,10 @@ class ReduxPlugin extends Plugin {
 			 */
 			const StoreRef = store;
 			ctx.refs.store = StoreRef;
-			
+
             const ReduxProvider = ctx.Filters.run('bluerain.redux.provider', Provider);
 			App = ctx.Filters.run('bluerain.redux.app', App);
-	   
+
 			return (<ReduxProvider store={store}><App {...props} /></ReduxProvider>);
 		};
 
