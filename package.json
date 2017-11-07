@@ -74,7 +74,7 @@
     "mapCoverage": true
   },
   "devDependencies": {
-    "@blueeast/tslint-config-blueeast": "^0.3.0",
+    "@blueeast/tslint-config-blueeast": "^0.5.0",
     "@types/jest": "^21.1.0",
     "@types/node": "^8.0.0",
     "colors": "^1.1.2",
