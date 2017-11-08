@@ -1,5 +1,7 @@
 # Redux Plugin
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/BlueEastCode/bluerain-plugin-redux.svg)](https://greenkeeper.io/)
+
 Adds Redux state management.
 
 ## Usage
