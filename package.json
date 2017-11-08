@@ -1,6 +1,6 @@
 {
   "name": "bluerain-plugin-redux",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Adds redux state management to BlueRain OS",
   "keywords": [],
   "main": "dist/bluerain-plugin-redux.umd.js",
