@@ -1,6 +1,7 @@
 import BR, { Plugin, BlueRainType } from '@blueeast/bluerain-os';
 import ReduxPlugin from '../src/bluerain-plugin-redux';
 import * as React from 'react';
+
 import * as ReactDOM from 'react-dom';
 import reducer from '../src/reducers';
 
@@ -46,13 +47,12 @@ describe('Redux Plugin Test', () => {
 
 	it('It should return initialstate', () => {
 		BR.Filters.add('bluerain.redux.reducers', function addstub(reducer) {
-			return {...reducer, 
+			return {...reducer,
 				stub: (state = 1, action) => {
 					switch (action.type) {
 						case 'DispatchAction':
-							return Object.assign({}, state, {
-								newState: 'Action Dispatched'
-							});
+							return {...state,
+								newState: 'Action Dispatched'};
 						default:
 							return state;
 					}
@@ -69,7 +69,7 @@ describe('Redux Plugin Test', () => {
 				stub: (state = 1, action) => {
 					switch (action.type) {
 						case 'DispatchAction':
-							return {...state, 
+							return {...state,
 								newState: 'ActionDispatched'};
 						default:
 							return state;
