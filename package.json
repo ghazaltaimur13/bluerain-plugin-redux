@@ -80,7 +80,7 @@
     "mapCoverage": true
   },
   "devDependencies": {
-    "@blueeast/tslint-config-blueeast": "^0.4.0",
+    "@blueeast/tslint-config-blueeast": "^0.5.1",
     "@types/jest": "^21.1.0",
     "@types/node": "^8.0.45",
     "@types/react": "^16.0.10",
