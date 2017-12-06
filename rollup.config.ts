@@ -2,6 +2,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import sourceMaps from 'rollup-plugin-sourcemaps';
 import camelCase from 'lodash.camelcase';
+import sizes from 'rollup-plugin-sizes';
 
 // tslint:disable-next-line:no-var-requires
 const pkg = require('./package.json');
@@ -16,20 +17,18 @@ export default {
   ],
   sourcemap: true,
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
-  external: ['react', '@blueeast/bluerain-os'],
+  external:  Object.keys(pkg.dependencies || {}).concat(Object.keys(pkg.peerDependencies || {})),
   watch: {
     include: 'compiled/**',
-  },
+	},
+	onwarn () {
+		return;
+	},
   plugins: [
     // Allow bundling cjs modules (unlike webpack, rollup doesn't understand cjs)
     commonjs({
-			namedExports: {
-				// left-hand side can be an absolute path, a path
-				// relative to the current directory, or the name
-				// of a module in node_modules
-				'node_modules/react/index.js': [ 'Children', 'Component', 'createElement' ]
-			}
 		}),
+		sizes(),
     // Allow node_modules resolution, so you can use 'external' to control
     // which external modules to include in the bundle
     // https://github.com/rollup/rollup-plugin-node-resolve#usage
